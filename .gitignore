@@ -1,2 +1,4 @@
 node_modules/
 container_logs
+server.cert
+server.key
