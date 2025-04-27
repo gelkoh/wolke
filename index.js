@@ -1,5 +1,7 @@
+const https = require("https")
 const express = require("express")
 const server = express()
+const fs = require("fs")
 const port = 3000
 
 server.get("/", function (req, res) {
@@ -12,6 +14,9 @@ server.get("/hello", function (req, res) {
     res.send("Hello, Wolke!")
 })
 
-server.listen(port, function () {
-    console.log("Express listening on " + port)
+https.createServer({
+    key: fs.readFileSync("./server.key"),
+    cert: fs.readFileSync("./server.cert")
+}, server).listen(port, () => {
+    console.log("Listening ...")
 })
