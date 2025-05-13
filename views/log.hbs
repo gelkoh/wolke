@@ -1,0 +1,52 @@
+<h1>File History</h1>
+<table id="logTable" border="1" cellpadding="10">
+    <thead>
+    <tr>
+        <th onclick="sortTable(0)">File name <span id="arrow0"></span></th>
+        <th onclick="sortTable(1)">Action <span id="arrow1"></span></th>
+        <th onclick="sortTable(2)">Date <span id="arrow2"></span></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each logs}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.action}}</td>
+            <td>{{this.date}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 70%;
+    margin: 50px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+}
+
+th {
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+
+th span {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #333;
+}
+</style>

@@ -1,1 +1,43 @@
-<h1>Wolke: Home</h1>
+<h1 style="text-align: center;">Wolke</h1>
+
+<h2>{{@key}}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Size (MB)</th>
+            <th>Date Created</th>
+            <th>Last Modified</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each files}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{size}}</td>
+                <td>{{date}}</td>
+                <td>{{changedate}}</td>
+                <td>{{type}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<style>
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
