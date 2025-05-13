@@ -1,0 +1,20 @@
+<h1>Storage</h1>
+
+{{storageInformation.usedStorageAmount}} MB/{{storageInformation.totalStorageAmount}} MB ({{storageInformation.totalUsedStoragePercentage}})
+
+<table>
+    <tr>
+        <th>File type</th>
+        <th>Total file count</th>
+        <th>Total file size</th>
+        <th>Percentage of storage</th>
+    </tr>
+    {{#each storageInformation.storageAnalysis}}
+        <tr>
+            <td>{{@key}}</td>
+            <td>{{this.totalAmount}}</td>
+            <td>{{this.totalSize}} MB</td>
+            <td>{{this.totalPercentage}} %</td>
+        </tr>
+    {{/each}}
+</table>
