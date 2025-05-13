@@ -6,6 +6,7 @@ import fs from "fs"
 import express from "express"
 import users from "./data/users.json" with { type: "json" }
 import files from "./data/files.json" with { type: "json" }
+import logs from "./data/logs.json" with { type: "json" }
 
 const port = 3000
 const app = express()
@@ -26,7 +27,8 @@ app.set("views", path.resolve(__dirname, "./views"));
 app.use(express.static("./public"))
 
 app.get("/", function (req, res) {
-    res.render("index")
+    const userFiles = files["user1"]
+    res.render("index", { files: userFiles })
 })
 
 app.get("/storage", function (req, res) {
@@ -67,6 +69,17 @@ app.get("/storage", function (req, res) {
     storageInformation["totalUsedStoragePercentage"] = (usedStorageAmount / totalStorageAmount * 100).toFixed(2) + " %"
     
     res.render("storage", { storageInformation })
+})
+
+// Route to render the logs page
+app.get('/log', (req, res) => {
+    res.render('log', { logs });
+})
+
+// Route to render the profile page
+app.get('/profile', (req, res) => {
+    const user1 = users[0]
+    res.render('profile', user1);
 })
 
 app.get("/hello", function (req, res) {
